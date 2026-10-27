@@ -194,8 +194,8 @@ const SITE_I18N = {
        (valmez, ostrava, lyon, praha, sternberk, koprivnice). */
     journey: {
       route: [
-        { id: "valmez",  name: "Gymnázium Valašské Meziříčí", place: "Valašské Meziříčí", years: "2017–2019", kind: "", badges: [] },
-        { id: "ostrava", name: "Mezinárodní gymnázium",       place: "Ostrava",           years: "2019–2023", kind: "",
+        { id: "valmez",  name: "Gymnázium Františka Palackého Valašské Meziříčí", place: "Valašské Meziříčí", years: "2017–2019", kind: "Secondary school", badges: [] },
+        { id: "ostrava", name: "1st International School of Ostrava", place: "Ostrava", years: "2019–2023", kind: "International gymnasium",
           badges: [
             { icon: "ib",       label: "International Baccalaureate" },
             { icon: "maturita", label: "Czech state maturita" }
@@ -211,7 +211,7 @@ const SITE_I18N = {
         viewRoute: "Route",
         replay: "Replay",
         mapTitle: "Map of Europe with Jan's route",
-        mapDesc: "A route from Gymnázium Valašské Meziříčí through the Mezinárodní gymnázium in Ostrava to emlyon business school in Lyon."
+        mapDesc: "A route from Gymnázium Františka Palackého in Valašské Meziříčí through the 1st International School of Ostrava to emlyon business school in Lyon."
       }
     },
 
@@ -478,8 +478,8 @@ const SITE_I18N = {
 
     journey: {
       route: [
-        { id: "valmez",  name: "Gymnázium Valašské Meziříčí", place: "Valašské Meziříčí", years: "2017–2019", kind: "", badges: [] },
-        { id: "ostrava", name: "Mezinárodní gymnázium",       place: "Ostrava",           years: "2019–2023", kind: "",
+        { id: "valmez",  name: "Gymnázium Františka Palackého Valašské Meziříčí", place: "Valašské Meziříčí", years: "2017–2019", kind: "Střední škola", badges: [] },
+        { id: "ostrava", name: "1st International School of Ostrava", place: "Ostrava", years: "2019–2023", kind: "Mezinárodní gymnázium",
           badges: [
             { icon: "ib",       label: "International Baccalaureate" },
             { icon: "maturita", label: "Státní maturita" }
@@ -495,7 +495,7 @@ const SITE_I18N = {
         viewRoute: "Trasa",
         replay: "Znovu",
         mapTitle: "Mapa Evropy s Janovou cestou",
-        mapDesc: "Cesta z Gymnázia Valašské Meziříčí přes Mezinárodní gymnázium v Ostravě na emlyon business school v Lyonu."
+        mapDesc: "Cesta z Gymnázia Františka Palackého ve Valašském Meziříčí přes 1st International School of Ostrava na emlyon business school v Lyonu."
       }
     },
 
