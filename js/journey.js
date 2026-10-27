@@ -6,10 +6,10 @@
    Data:  window.EUROPE_MAP (js/europe-map.js, generated) — land paths, city
           positions and three camera frames, all in one projected coordinate
           system.
-          SITE.journey (js/content.js) — the route, internships and UI texts.
+          SITE.journey (js/content.js) — the route (schools, years, badges) and UI texts.
 
    Story: Europe → Czechia turns red → zoom in → school #1 → line to school
-          #2 → internship dots → zoom out while the line travels to Lyon.
+          #2 → zoom out while the line travels to Lyon.
    ========================================================================= */
 (function () {
   "use strict";
@@ -46,8 +46,6 @@
   $("jmapReplay").lastElementChild.textContent = UI.replay;
   $("jmapTitle").textContent = UI.mapTitle;
   $("jmapDesc").textContent = UI.mapDesc;
-  $("jLegendSchool").textContent = UI.legendSchool;
-  $("jLegendIntern").textContent = UI.legendInternships + ": " + J.internships.map((i) => i.place).join(" · ");
 
   /* ---------- SVG scene ------------------------------------------------ */
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
@@ -85,10 +83,7 @@
     // dx/dy/a = full label offset (px) · nx/ny = offset of the small step number on narrow screens
     valmez:     { dx: -14, dy: 21,  a: "end",   nx: -12, ny: 24 },
     ostrava:    { dx: 14,  dy: -14, a: "start", nx: 12,  ny: -10 },
-    lyon:       { dx: 16,  dy: -12, a: "start", nx: 0,   ny: -14 },
-    praha:      { dx: 0,   dy: -17, a: "middle" },
-    sternberk:  { dx: -10, dy: -15, a: "end" },
-    koprivnice: { dx: 16,  dy: 5,   a: "start" }
+    lyon:       { dx: 16,  dy: -12, a: "start", nx: 0,   ny: -14 }
   };
   const stops = {};
   function ensureStop(id) {
@@ -96,40 +91,20 @@
     const xy = C[id];
     const g = el("g", { class: "jm-marker", "data-id": id }, svg);
     const dots = el("g", { class: "jm-dots" }, g);   // scaled down a little when zoomed far out
-    el("circle", { class: "jm-ring-i", r: 10 }, dots);
-    el("circle", { class: "jm-pulse-i", r: 10 }, dots);
-    el("circle", { class: "jm-dot-i", r: 4.5 }, dots);
     el("circle", { class: "jm-pulse-s", r: 6 }, dots);
     el("circle", { class: "jm-dot-s", r: 5.5 }, dots);
     const lab = el("g", { class: "jm-label" }, g);
     const o = labelAt[id] || { dx: 12, dy: -12, a: "start" };
-    stops[id] = { id, x: xy[0], y: xy[1], g, dots, lab, o, school: false, intern: false, isRoute: false, order: 0 };
+    stops[id] = { id, x: xy[0], y: xy[1], g, dots, lab, o, school: false, order: 0 };
     return stops[id];
   }
   route.forEach((r, i) => {
     const s = ensureStop(r.id);
-    s.isRoute = true; s.order = i + 1; s.name = r.name;
-    s.g.classList.add("has-school");
-  });
-  J.internships.forEach((n) => {
-    const s = ensureStop(n.id);
-    s.place = s.place || n.place;
-    s.internPlace = n.place;
-  });
-  Object.values(stops).forEach((s) => {
+    s.order = i + 1;
     const o = s.o;
-    const cls = s.isRoute ? "" : " is-intern-label";
-    if (s.isRoute) {
-      const leader = el("line", { class: "jm-leader", x1: 0, y1: 0, x2: o.dx * 0.8, y2: o.dy * 0.8 }, s.lab);
-      const t = el("text", { class: "jm-t-full", x: o.dx, y: o.dy, "text-anchor": o.a }, s.lab);
-      t.textContent = s.name;
-      const n = el("text", { class: "jm-t-num", x: o.nx || 0, y: o.ny || -13, "text-anchor": "middle" }, s.lab);
-      n.textContent = String(s.order);
-      s.leader = leader;
-    } else {
-      const t = el("text", { class: "jm-t-full" + cls, x: o.dx, y: o.dy, "text-anchor": o.a }, s.lab);
-      t.textContent = s.internPlace;
-    }
+    el("line", { class: "jm-leader", x1: 0, y1: 0, x2: o.dx * 0.8, y2: o.dy * 0.8 }, s.lab);
+    el("text", { class: "jm-t-full", x: o.dx, y: o.dy, "text-anchor": o.a }, s.lab).textContent = r.name;
+    el("text", { class: "jm-t-num", x: o.nx || 0, y: o.ny || -13, "text-anchor": "middle" }, s.lab).textContent = String(i + 1);
   });
 
   // Travelling dot that leads the line.
@@ -165,10 +140,7 @@
     const zoomed = cam.w < 300;
     Object.values(stops).forEach((st) => {
       let show = false;
-      if (st.school || st.intern) {
-        if (zoomed) show = narrow ? st.isRoute : true;
-        else show = st.id === "lyon";
-      }
+      if (st.school) show = zoomed || st.id === "lyon";
       st.lab.classList.toggle("is-show", show);
     });
     czLab.classList.toggle("is-show", cam.w > 500 && mount.classList.contains("is-cz"));
@@ -229,12 +201,25 @@
   }
 
   /* ---------- steps list ------------------------------------------------ */
+  // Minimal line icons for the diploma badges (own drawings, 24×24).
+  const ICONS = {
+    ib: '<path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"/><path d="M3 12h18"/><path d="M12 3c2.8 2.7 4.2 5.7 4.2 9s-1.4 6.3-4.2 9c-2.8-2.7-4.2-5.7-4.2-9S9.2 5.7 12 3z"/>',
+    maturita: '<path d="M2.5 9.5 12 5l9.5 4.5L12 14 2.5 9.5z"/><path d="M6.5 11.8V16c0 1.4 2.5 2.8 5.5 2.8s5.5-1.4 5.5-2.8v-4.2"/><path d="M21.5 9.5V15"/>'
+  };
+  const badgeHtml = (b) =>
+    `<span class="jbadge"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[b.icon] || ""}</svg>${b.label}</span>`;
+
   const stepsEl = $("jsteps");
   stepsEl.innerHTML = route.map((r, i) => `
     <li class="jstep-li">
       <button type="button" class="jstep" data-step="${i}">
         <span class="jstep-n">${i + 1}</span>
-        <span class="jstep-txt"><strong>${r.name}</strong><small>${r.kind} · ${r.place}</small></span>
+        <span class="jstep-txt">
+          <strong>${r.name}</strong>
+          <small>${r.years} · ${r.place}</small>
+          ${r.kind ? `<small class="jstep-kind">${r.kind}</small>` : ""}
+          ${r.badges && r.badges.length ? `<span class="jbadges">${r.badges.map(badgeHtml).join("")}</span>` : ""}
+        </span>
       </button>
     </li>`).join("");
   const stepBtns = Array.from(stepsEl.querySelectorAll(".jstep"));
@@ -251,17 +236,15 @@
 
   function resetState() {
     mount.classList.remove("is-cz", "is-travelling");
-    Object.values(stops).forEach((s) => { s.school = s.intern = false; s.g.classList.remove("is-school", "is-intern"); });
+    Object.values(stops).forEach((s) => { s.school = false; s.g.classList.remove("is-school"); });
     segs.forEach((_, i) => setSeg(i, 0));
     travXY = null; trav.removeAttribute("transform");
     setStep(-1, -1);
   }
   function showSchool(id) { const s = stops[id]; s.school = true; s.g.classList.add("is-school"); apply(); }
-  function showIntern(id) { const s = stops[id]; s.intern = true; s.g.classList.add("is-intern"); apply(); }
   function finalize() {
     mount.classList.add("is-cz");
     route.forEach((r) => showSchool(r.id));
-    J.internships.forEach((n) => showIntern(n.id));
     segs.forEach((_, i) => setSeg(i, 1));
     travXY = null; trav.removeAttribute("transform");
     mount.classList.remove("is-travelling");
@@ -284,13 +267,7 @@
 
     await drawSeg(0, 1200, token); if (!ok()) return;
     showSchool(route[1].id); setStep(1, 1);
-    await wait(1100); if (!ok()) return;
-
-    for (const n of J.internships) {
-      showIntern(n.id);
-      await wait(360); if (!ok()) return;
-    }
-    await wait(1500); if (!ok()) return;
+    await wait(1800); if (!ok()) return;
 
     const zoomOut = fly(F.route, 2400);
     await wait(500); if (!ok()) return;

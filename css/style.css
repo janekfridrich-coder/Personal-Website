@@ -499,7 +499,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 @media (max-width:720px){ .edu-row .place{ text-align:left; } }
 
 /* ---- journey: animated route map (js/journey.js) ------------------------------------------*/
-.jsection{ --amber:#FFB938; padding:clamp(40px,7vw,90px) 0 clamp(60px,9vw,120px); border-top:1px solid var(--border-soft); }
+.jsection{ padding:clamp(40px,7vw,90px) 0 clamp(60px,9vw,120px); border-top:1px solid var(--border-soft); }
 .jwrap{ margin-top:clamp(28px,5vw,56px); }
 .jmap{ --s:1; position:relative; aspect-ratio:16/10; background:radial-gradient(120% 120% at 35% 40%, #101010 0%, #000 70%); border:1px solid var(--border); overflow:hidden; }
 @media (max-width:720px){ .jmap{ aspect-ratio:4/5; } }
@@ -516,18 +516,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 .jm-marker.is-school .jm-dot-s{ transform:scale(1); }
 .jm-pulse-s{ fill:none; stroke:#fff; stroke-width:1.5px; opacity:0; }
 .jm-marker.is-school .jm-pulse-s{ animation:jmPulse 2.8s ease-out infinite; }
-.jm-dot-i{ fill:var(--amber); stroke:#050505; stroke-width:1.5px; transform:scale(0); transition:transform .5s cubic-bezier(.3,1.7,.5,1); }
-.jm-marker.is-intern:not(.has-school) .jm-dot-i{ transform:scale(1); }
-.jm-ring-i{ fill:none; stroke:var(--amber); stroke-width:2px; transform:scale(.4); opacity:0; transition:transform .5s var(--ease), opacity .4s; }
-.jm-marker.is-intern.has-school .jm-ring-i{ transform:scale(1); opacity:1; }
-.jm-pulse-i{ fill:none; stroke:var(--amber); stroke-width:1.5px; opacity:0; }
-.jm-marker.is-intern .jm-pulse-i{ animation:jmPulse 2.8s ease-out infinite .7s; }
 @keyframes jmPulse{ 0%{ transform:scale(.7); opacity:.7; } 100%{ transform:scale(2); opacity:0; } }
 
 .jm-label{ opacity:0; transition:opacity .45s var(--ease); pointer-events:none; }
 .jm-label.is-show{ opacity:1; }
 .jm-label text{ font:700 13px var(--font-display); fill:var(--text); paint-order:stroke; stroke:#000; stroke-width:4px; stroke-linejoin:round; letter-spacing:.01em; }
-.jm-label .is-intern-label{ fill:var(--amber); font-size:12px; }
 .jm-leader{ stroke:rgba(255,255,255,.55); stroke-width:1px; }
 .jm-t-num{ display:none; }
 .jmap.is-narrow .jm-t-full, .jmap.is-narrow .jm-leader{ display:none; }
@@ -558,6 +551,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
 .jstep-txt{ display:block; margin-top:16px; transition:opacity .5s var(--ease); }
 .jstep-txt strong{ display:block; font-size:1.05rem; font-weight:800; letter-spacing:-0.01em; line-height:1.25; }
 .jstep-txt small{ display:block; color:var(--grey); margin-top:5px; font-size:.82rem; }
+.jstep-txt .jstep-kind{ margin-top:2px; }
+.jbadges{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+.jbadge{ display:inline-flex; align-items:center; gap:7px; padding:5px 11px 5px 8px; border:1px solid var(--border); border-radius:999px; font-size:.72rem; letter-spacing:.02em; color:var(--text-dim); white-space:nowrap; }
+.jbadge svg{ width:15px; height:15px; flex:none; fill:none; stroke:var(--red); stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
 .jstep:not(.is-reached) .jstep-txt{ opacity:.4; }
 .jstep.is-reached .jstep-n{ background:#fff; border-color:#fff; color:#000; }
 .jstep.is-current .jstep-n{ background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 0 0 5px rgba(215,25,32,.3); }
@@ -571,11 +568,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
   .jstep-li:last-child::before{ display:none; }
 }
 
-.jlegend{ display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:28px; font-size:.85rem; color:var(--text-dim); }
-.jlegend-i{ display:inline-flex; align-items:center; gap:10px; }
-.jdot{ width:10px; height:10px; border-radius:50%; display:inline-block; flex:none; }
-.jdot-white{ background:#fff; }
-.jdot-amber{ background:var(--amber); }
 
 .vtimeline{ margin-top:70px; position:relative; padding-left:36px; }
 .vtimeline::before{ content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:var(--border); }

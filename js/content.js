@@ -194,15 +194,13 @@ const SITE_I18N = {
        (valmez, ostrava, lyon, praha, sternberk, koprivnice). */
     journey: {
       route: [
-        { id: "valmez",  name: "Gymnázium Valašské Meziříčí",         place: "Valašské Meziříčí", kind: "Secondary school" },
-        { id: "ostrava", name: "1st International School of Ostrava", place: "Ostrava",           kind: "International school" },
-        { id: "lyon",    name: "emlyon business school",              place: "Lyon, France",      kind: "Global BBA · 2025–2027" }
-      ],
-      internships: [
-        { id: "praha",      place: "Prague" },
-        { id: "sternberk",  place: "Šternberk" },
-        { id: "valmez",     place: "Valašské Meziříčí" },
-        { id: "koprivnice", place: "Kopřivnice" }
+        { id: "valmez",  name: "Gymnázium Valašské Meziříčí", place: "Valašské Meziříčí", years: "2017–2019", kind: "", badges: [] },
+        { id: "ostrava", name: "Mezinárodní gymnázium",       place: "Ostrava",           years: "2019–2023", kind: "",
+          badges: [
+            { icon: "ib",       label: "International Baccalaureate" },
+            { icon: "maturita", label: "Czech state maturita" }
+          ] },
+        { id: "lyon",    name: "emlyon business school",      place: "Lyon, France",      years: "2025–2027", kind: "Global BBA", badges: [] }
       ],
       ui: {
         eyebrow: "The route",
@@ -212,10 +210,8 @@ const SITE_I18N = {
         viewCzechia: "Czechia",
         viewRoute: "Route",
         replay: "Replay",
-        legendSchool: "School path",
-        legendInternships: "Internships",
         mapTitle: "Map of Europe with Jan's route",
-        mapDesc: "A route from Gymnázium Valašské Meziříčí through the 1st International School of Ostrava to emlyon business school in Lyon, with internships in Prague, Šternberk, Valašské Meziříčí and Kopřivnice."
+        mapDesc: "A route from Gymnázium Valašské Meziříčí through the Mezinárodní gymnázium in Ostrava to emlyon business school in Lyon."
       }
     },
 
@@ -482,15 +478,13 @@ const SITE_I18N = {
 
     journey: {
       route: [
-        { id: "valmez",  name: "Gymnázium Valašské Meziříčí",         place: "Valašské Meziříčí", kind: "Střední škola" },
-        { id: "ostrava", name: "1st International School of Ostrava", place: "Ostrava",           kind: "Mezinárodní škola" },
-        { id: "lyon",    name: "emlyon business school",              place: "Lyon, Francie",     kind: "Global BBA · 2025–2027" }
-      ],
-      internships: [
-        { id: "praha",      place: "Praha" },
-        { id: "sternberk",  place: "Šternberk" },
-        { id: "valmez",     place: "Valašské Meziříčí" },
-        { id: "koprivnice", place: "Kopřivnice" }
+        { id: "valmez",  name: "Gymnázium Valašské Meziříčí", place: "Valašské Meziříčí", years: "2017–2019", kind: "", badges: [] },
+        { id: "ostrava", name: "Mezinárodní gymnázium",       place: "Ostrava",           years: "2019–2023", kind: "",
+          badges: [
+            { icon: "ib",       label: "International Baccalaureate" },
+            { icon: "maturita", label: "Státní maturita" }
+          ] },
+        { id: "lyon",    name: "emlyon business school",      place: "Lyon, Francie",     years: "2025–2027", kind: "Global BBA", badges: [] }
       ],
       ui: {
         eyebrow: "Trasa",
@@ -500,10 +494,8 @@ const SITE_I18N = {
         viewCzechia: "Česko",
         viewRoute: "Trasa",
         replay: "Znovu",
-        legendSchool: "Školní cesta",
-        legendInternships: "Stáže",
         mapTitle: "Mapa Evropy s Janovou cestou",
-        mapDesc: "Cesta z Gymnázia Valašské Meziříčí přes 1st International School of Ostrava na emlyon business school v Lyonu, se stážemi v Praze, Šternberku, Valašském Meziříčí a Kopřivnici."
+        mapDesc: "Cesta z Gymnázia Valašské Meziříčí přes Mezinárodní gymnázium v Ostravě na emlyon business school v Lyonu."
       }
     },
 

@@ -35,10 +35,7 @@ const [[cx0, cy0], [cx1, cy1]] = path.bounds(czFeature);
 const cityLonLat = {
   valmez:   [17.9716, 49.4719], // Valašské Meziříčí
   ostrava:  [18.2625, 49.8209],
-  lyon:     [4.8357, 45.7640],
-  praha:    [14.4378, 50.0755],
-  sternberk:[17.2989, 49.7306],
-  koprivnice:[18.1442, 49.5996]
+  lyon:     [4.8357, 45.7640]
 };
 const cities = {};
 for (const [k, ll] of Object.entries(cityLonLat)) {
