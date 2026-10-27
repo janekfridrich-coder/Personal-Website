@@ -23,19 +23,32 @@
     <p class="lede reveal reveal-delay-1" style="margin-top:22px;" data-i18n="journey_lede">Places, schools, work and a few unexpected turns.</p>
   </section>
 
-  <section class="section container" style="padding-top:50px;">
-    <span class="eyebrow reveal" data-i18n="eyebrow_education">Education</span>
-    <div id="eduList"></div>
-  </section>
-
-  <section class="section section-alt">
+  <!-- Animated route map — built by js/journey.js from js/europe-map.js + SITE.journey -->
+  <section class="jsection" style="margin-top:50px;">
     <div class="container">
-      <span class="eyebrow reveal" data-i18n="eyebrow_roughly_where">Roughly where</span>
-      <h2 class="h-lg reveal" data-i18n="map_heading">A conceptual map.</h2>
-      <div class="map-wrap reveal reveal-delay-1">
-        <svg class="map-svg" id="mapSvg" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+      <span class="eyebrow reveal" id="jEyebrow"></span>
+      <h2 class="h-xl reveal" id="jHeading"></h2>
+    </div>
+    <div class="container jwrap">
+      <div class="jmap" id="jmap">
+        <svg class="jmap-svg" id="jmapSvg" viewBox="0 0 1000 625" role="img" aria-labelledby="jmapTitle jmapDesc">
+          <title id="jmapTitle"></title>
+          <desc id="jmapDesc"></desc>
+        </svg>
+        <div class="jmap-controls">
+          <button type="button" class="jbtn" id="jBtnEurope"></button>
+          <button type="button" class="jbtn" id="jBtnCzechia"></button>
+          <button type="button" class="jbtn" id="jBtnRoute"></button>
+          <button type="button" class="jbtn jbtn-replay" id="jmapReplay"><span aria-hidden="true">↻</span><span></span></button>
+        </div>
       </div>
-      <p class="hand" style="margin-top:18px;" data-i18n="map_hand">somewhere along the way</p>
+
+      <ol class="jsteps" id="jsteps"></ol>
+
+      <p class="jlegend">
+        <span class="jlegend-i"><i class="jdot jdot-white"></i><span id="jLegendSchool"></span></span>
+        <span class="jlegend-i"><i class="jdot jdot-amber"></i><span id="jLegendIntern"></span></span>
+      </p>
     </div>
   </section>
 
@@ -53,19 +66,6 @@
 <script src="js/i18n.js"></script>
 <script>
   (function () {
-    const edu = document.getElementById("eduList");
-    if (edu) {
-      edu.innerHTML = SITE.education.map(e => `
-        <div class="edu-row reveal">
-          <div>
-            <h3>${e.school}</h3>
-            <div class="program">${e.program}</div>
-          </div>
-          <div class="place">${e.period}<br>${e.place}</div>
-        </div>
-      `).join("");
-    }
-
     const vt = document.getElementById("vtimeline");
     if (vt) {
       vt.innerHTML = SITE.timeline.map(t => `
@@ -76,29 +76,10 @@
         </div>
       `).join("");
     }
-
-    // conceptual map
-    const mapHand2 = LANG === "cs" ? (STATIC_I18N.cs.map_hand2) : (STATIC_I18N.en.map_hand2);
-    const svg = document.getElementById("mapSvg");
-    if (svg) {
-      const pts = SITE.mapPoints.map(p => ({ ...p, px: (p.x / 100) * 400, py: (p.y / 100) * 275 }));
-      let route = "";
-      pts.forEach((p, i) => { route += (i === 0 ? "M" : "L") + p.px + "," + p.py + " "; });
-      let dots = "";
-      pts.forEach((p) => {
-        dots += `<circle class="map-dot" cx="${p.px}" cy="${p.py}" r="4.5"></circle>`;
-        dots += `<text class="map-point-label" x="${p.px + 10}" y="${p.py + 4}">${p.label}</text>`;
-      });
-      svg.innerHTML = `
-        <rect class="map-outline" x="10" y="10" width="380" height="255"></rect>
-        <path class="map-outline" d="M40,230 L70,140 L120,90 L200,60 L280,80 L340,150 L360,220" />
-        <path class="map-route" d="${route}"></path>
-        ${dots}
-        <text class="map-hand" x="230" y="230" transform="rotate(-4 230 230)">${mapHand2}</text>
-      `;
-    }
   })();
 </script>
+<script src="js/europe-map.js"></script>
+<script src="js/journey.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

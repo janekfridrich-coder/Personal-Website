@@ -190,11 +190,34 @@ const SITE_I18N = {
       { school: "emlyon business school", program: "Global BBA", period: "2025–2027", place: "France" }
     ],
 
-    mapPoints: [
-      { id: "cz", label: "Czech Republic", x: 63, y: 30, note: "home base" },
-      { id: "grenoble", label: "Grenoble", x: 30, y: 62, note: "somewhere along the way" },
-      { id: "lyon", label: "Lyon", x: 27, y: 55, note: "" }
-    ],
+    /* Journey page map. `id` must match a city key in js/europe-map.js
+       (valmez, ostrava, lyon, praha, sternberk, koprivnice). */
+    journey: {
+      route: [
+        { id: "valmez",  name: "Gymnázium Valašské Meziříčí",         place: "Valašské Meziříčí", kind: "Secondary school" },
+        { id: "ostrava", name: "1st International School of Ostrava", place: "Ostrava",           kind: "International school" },
+        { id: "lyon",    name: "emlyon business school",              place: "Lyon, France",      kind: "Global BBA · 2025–2027" }
+      ],
+      internships: [
+        { id: "praha",      place: "Prague" },
+        { id: "sternberk",  place: "Šternberk" },
+        { id: "valmez",     place: "Valašské Meziříčí" },
+        { id: "koprivnice", place: "Kopřivnice" }
+      ],
+      ui: {
+        eyebrow: "The route",
+        heading: "FROM VALAŠSKO<br>TO LYON.",
+        czechia: "CZECHIA",
+        viewEurope: "Europe",
+        viewCzechia: "Czechia",
+        viewRoute: "Route",
+        replay: "Replay",
+        legendSchool: "School path",
+        legendInternships: "Internships",
+        mapTitle: "Map of Europe with Jan's route",
+        mapDesc: "A route from Gymnázium Valašské Meziříčí through the 1st International School of Ostrava to emlyon business school in Lyon, with internships in Prague, Šternberk, Valašské Meziříčí and Kopřivnice."
+      }
+    },
 
     festivalGrowth: [
       { year: 2019, visitors: 120 },
@@ -457,11 +480,32 @@ const SITE_I18N = {
       { school: "emlyon business school", program: "Global BBA", period: "2025–2027", place: "Francie" }
     ],
 
-    mapPoints: [
-      { id: "cz", label: "Česká republika", x: 63, y: 30, note: "domovská základna" },
-      { id: "grenoble", label: "Grenoble", x: 30, y: 62, note: "někde po cestě" },
-      { id: "lyon", label: "Lyon", x: 27, y: 55, note: "" }
-    ],
+    journey: {
+      route: [
+        { id: "valmez",  name: "Gymnázium Valašské Meziříčí",         place: "Valašské Meziříčí", kind: "Střední škola" },
+        { id: "ostrava", name: "1st International School of Ostrava", place: "Ostrava",           kind: "Mezinárodní škola" },
+        { id: "lyon",    name: "emlyon business school",              place: "Lyon, Francie",     kind: "Global BBA · 2025–2027" }
+      ],
+      internships: [
+        { id: "praha",      place: "Praha" },
+        { id: "sternberk",  place: "Šternberk" },
+        { id: "valmez",     place: "Valašské Meziříčí" },
+        { id: "koprivnice", place: "Kopřivnice" }
+      ],
+      ui: {
+        eyebrow: "Trasa",
+        heading: "Z VALAŠSKA<br>DO LYONU.",
+        czechia: "ČESKÁ REPUBLIKA",
+        viewEurope: "Evropa",
+        viewCzechia: "Česko",
+        viewRoute: "Trasa",
+        replay: "Znovu",
+        legendSchool: "Školní cesta",
+        legendInternships: "Stáže",
+        mapTitle: "Mapa Evropy s Janovou cestou",
+        mapDesc: "Cesta z Gymnázia Valašské Meziříčí přes 1st International School of Ostrava na emlyon business school v Lyonu, se stážemi v Praze, Šternberku, Valašském Meziříčí a Kopřivnici."
+      }
+    },
 
     festivalGrowth: [
       { year: 2019, visitors: 120 },

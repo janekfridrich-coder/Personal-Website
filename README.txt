@@ -18,6 +18,10 @@ js/main.js                 → veškerá interaktivita (menu, kurzor,
                               animace, timeline, mapa, grafy)
 js/content.js               → VEŠKERÝ TEXTOVÝ OBSAH A ODKAZY
                               (tohle budete upravovat nejčastěji)
+js/journey.js               → animovaná mapa trasy na stránce Journey
+                              (data trasy a stáží: SITE.journey v content.js)
+js/europe-map.js            → vygenerovaná data mapy Evropy (needitovat
+                              ručně; generuje tools/build-europe-map.mjs)
 
 JAK WEB NAHRÁT NA DOMÉNU
 -----------------------------------------------------------------
