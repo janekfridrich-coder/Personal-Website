@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Jan Fridrich</title>
+<meta name="description" content="Have an idea? Let's talk — get in touch with Jan Fridrich.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="container contact-page">
+    <span class="eyebrow reveal" data-i18n="eyebrow_idea">Have an idea?</span>
+    <h1 class="h-huge reveal" data-i18n-html="contact_heading_html">LET'S<br>TALK<span class="text-red">.</span></h1>
+
+    <div class="contact-links reveal reveal-delay-1" id="contactLinks"></div>
+
+    <p class="contact-note reveal reveal-delay-2" data-i18n="contact_note">Business, projects, opportunities or just something interesting.</p>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/content.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+  (function () {
+    const t = STATIC_I18N[LANG] || STATIC_I18N.en;
+    const el = document.getElementById("contactLinks");
+    if (el) {
+      el.innerHTML = `
+        <a href="mailto:${SITE.links.email}"><span>${t.contact_email}</span><span class="go">${t.say_hi}</span></a>
+        <a href="${SITE.links.linkedin}" target="_blank" rel="noopener"><span>${t.contact_linkedin}</span><span class="go">${t.visit_link}</span></a>
+        <a href="${SITE.links.instagram}" target="_blank" rel="noopener"><span>${t.contact_instagram}</span><span class="go">${t.visit_link}</span></a>
+      `;
+    }
+  })();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

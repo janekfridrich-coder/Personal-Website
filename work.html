@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Jan Fridrich</title>
+<meta name="description" content="Where numbers meet decisions — Jan Fridrich's experience in finance and strategy.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="container work-hero">
+    <span class="eyebrow reveal" data-i18n="eyebrow_work">Work</span>
+    <h1 class="h-xl reveal" data-i18n-html="work_hero_html">WORK /<br>EXPERIENCE.</h1>
+    <p class="lede reveal reveal-delay-1" style="margin-top:22px;" data-i18n="work_lede">Where numbers meet decisions.</p>
+  </section>
+
+  <section class="container" style="padding-top:60px; display:flex; justify-content:space-between; gap:30px; flex-wrap:wrap; border-top:1px solid var(--border); padding-bottom:40px;">
+    <span class="eyebrow reveal" style="margin-bottom:0;" data-i18n="work_period_label">2019 → NOW</span>
+    <p class="body-text reveal reveal-delay-1" style="max-width:520px; margin:0;" data-i18n="work_intro">A timeline of the places where numbers met decisions — and where ideas became real work.</p>
+  </section>
+
+  <section class="section container" style="padding-top:0;">
+    <div id="timelineWrap"></div>
+
+    <div class="cv-block reveal">
+      <div>
+        <p class="hand" data-i18n="cv_hand">Want the boring version?</p>
+      </div>
+      <a class="cv-btn" id="cvLink" href="#" target="_blank" rel="noopener" data-i18n="cv_button">Download CV ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/content.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+  (function () {
+    const wrap = document.getElementById("timelineWrap");
+    const all = SITE.experience;
+    const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    if (wrap) {
+      wrap.innerHTML = all.map((e, i) => `
+        <article class="timeline-item reveal${i === 0 ? " is-open" : ""}${e.sketch ? " has-sketch" : ""}" data-company="${slugify(e.company)}">
+          <div class="timeline-head">
+            <div class="timeline-head-main">
+              ${e.logo ? `<span class="timeline-logo"><img src="${e.logo}" alt="${e.company} logo"></span>` : ""}
+              <div>
+                <h3>${e.company}</h3>
+                <div class="timeline-role">${e.role}</div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:18px;">
+              <span class="period">${e.period}</span>
+              <span class="timeline-plus">+</span>
+            </div>
+          </div>
+          <div class="timeline-body">
+            <div class="timeline-body-inner">
+              <div>
+                <p class="body-text">${e.description}</p>
+                <div class="focus-tags" style="margin-top:20px;">${e.focus.map(f => `<span>${f}</span>`).join("")}</div>
+              </div>
+              ${e.sketch ? `<div class="timeline-sketch-wrap"><img class="timeline-sketch" src="${e.sketch}" alt="${e.sketchAlt || ""}"></div>` : ""}
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+    const cv = document.getElementById("cvLink");
+    if (cv) cv.href = SITE.links.cv;
+  })();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

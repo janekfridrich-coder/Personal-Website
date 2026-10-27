@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Projects — Jan Fridrich</title>
+<meta name="description" content="Digital experiments, tools and dashboards — still experimenting.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="container pdetail-hero">
+    <a href="../projects.html" class="hand" style="font-size:1rem; text-decoration:none;" data-i18n="all_projects">← All projects</a>
+    <h1 class="h-xl reveal" style="margin-top:16px;" data-i18n-html="digital_hero_html">DIGITAL<br>PROJECTS.</h1>
+    <p class="lede reveal reveal-delay-1" style="margin-top:16px;" id="pIntro"></p>
+    <div class="pdetail-meta reveal reveal-delay-1" id="pMeta"></div>
+    <p class="hand" style="margin-top:20px;" data-i18n="still_experimenting">still experimenting →</p>
+    <div class="pdetail-media reveal reveal-delay-2">
+      <div class="media-label">DATA / POWER BI / APPS / AUTOMATION</div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="eyebrow_story">Story</span>
+      <div class="pdetail-story" id="pStory"></div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="eyebrow reveal" data-i18n="eyebrow_categories">Categories</span>
+    <div class="resp-tags reveal" id="pResp"></div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../js/content.js"></script>
+<script src="../js/i18n.js"></script>
+<script>
+  (function () {
+    const p = SITE.projects["digital"];
+    document.getElementById("pIntro").textContent = p.intro;
+    document.getElementById("pMeta").innerHTML = `<span>${p.category}</span><span>${p.year}</span><span>${p.status}</span>`;
+    document.getElementById("pStory").innerHTML = p.story.map(s => `<p>${s}</p>`).join("");
+    document.getElementById("pResp").innerHTML = p.responsibilities.map(r => `<span>${r}</span>`).join("");
+  })();
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

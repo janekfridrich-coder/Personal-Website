@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eteron Group — Jan Fridrich</title>
+<meta name="description" content="Eteron Group — engineering better businesses. Automation, dashboards and internal systems for Czech companies. Co-founded by Jan Fridrich.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="container pdetail-hero">
+    <a href="../projects.html" class="hand" style="font-size:1rem; text-decoration:none;" data-i18n="all_projects">← All projects</a>
+    <h1 class="h-xl reveal" style="margin-top:16px;" data-i18n-html="eteron_hero_html">ENGINEERING<br>BETTER BUSINESSES.</h1>
+    <p class="lede reveal reveal-delay-1" style="margin-top:16px;" id="pIntro"></p>
+    <div class="pdetail-meta reveal reveal-delay-1" id="pMeta"></div>
+    <div class="pdetail-media reveal reveal-delay-2">
+      <img src="../assets/project-eteron.jpg" alt="Eteron Group client website project, shown on a monitor" style="width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.05);">
+    </div>
+  </section>
+
+  <section class="section container" style="padding-bottom:0;">
+    <span class="eyebrow reveal" data-i18n="eyebrow_problem">The problem</span>
+    <h2 class="h-lg reveal" data-i18n="eteron_problem_heading">Most Czech companies still run on Excel and phone calls.</h2>
+    <p class="body-text reveal reveal-delay-1" style="margin-top:16px; max-width:70ch;" data-i18n="eteron_problem_body">Manual processes. Tools that don't talk to each other. Decisions made on gut feeling instead of data. The real cost usually stays invisible — until it starts holding growth back.</p>
+  </section>
+
+  <section class="section container">
+    <span class="eyebrow reveal" data-i18n="eyebrow_what_we_do">What we do</span>
+    <div class="sides-grid" style="margin-top:36px;">
+      <div class="side-card reveal">
+        <span class="side-n">01</span>
+        <h3 data-i18n="eteron_area1_title">Automation</h3>
+        <p data-i18n="eteron_area1_body">Finding the processes slowing a business down the most and replacing them with accurate, reliable automation.</p>
+      </div>
+      <div class="side-card reveal reveal-delay-1">
+        <span class="side-n">02</span>
+        <h3 data-i18n="eteron_area2_title">Dashboards</h3>
+        <p data-i18n="eteron_area2_body">Live numbers in front of the right people, so decisions happen on current data instead of a monthly report.</p>
+      </div>
+      <div class="side-card reveal reveal-delay-2">
+        <span class="side-n">03</span>
+        <h3 data-i18n="eteron_area3_title">Internal tools</h3>
+        <p data-i18n="eteron_area3_body">Software built around how a team actually works — internal apps, customer portals and company websites tied into real systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="eyebrow_story">Story</span>
+      <div class="pdetail-story" id="pStory"></div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="eyebrow reveal" data-i18n="eyebrow_role">Role</span>
+    <div class="resp-tags reveal" id="pResp"></div>
+    <a class="pdetail-external reveal" id="pExternal" href="#" target="_blank" rel="noopener"></a>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../js/content.js"></script>
+<script src="../js/i18n.js"></script>
+<script>
+  (function () {
+    const p = SITE.projects["eteron-group"];
+    document.getElementById("pIntro").textContent = p.intro;
+    document.getElementById("pMeta").innerHTML = `<span>${p.category}</span><span>${p.year}</span><span>${p.status}</span>`;
+    document.getElementById("pStory").innerHTML = p.story.map(s => `<p>${s}</p>`).join("");
+    document.getElementById("pResp").innerHTML = p.responsibilities.map(r => `<span>${r}</span>`).join("");
+    const ext = document.getElementById("pExternal");
+    ext.textContent = p.externalLabel + " ↗";
+    ext.href = p.externalUrl;
+  })();
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

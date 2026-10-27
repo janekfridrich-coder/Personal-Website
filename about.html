@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Jan Fridrich</title>
+<meta name="description" content="Finance, building things and everything in between — a bit more about Jan Fridrich.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="container about-hero">
+    <div>
+      <span class="eyebrow reveal" data-i18n="eyebrow_about">About</span>
+      <h1 class="h-xl reveal" data-i18n-html="about_hero_html">THERE'S A LOT<br>GOING ON.</h1>
+      <p class="lede reveal reveal-delay-1" style="margin-top:24px;" data-i18n="about_lede">I've never been particularly interested in choosing between business, creativity and experiences.</p>
+      <p class="body-text reveal reveal-delay-2" style="margin-top:14px;" data-i18n="about_body">Most of the time, I'm somewhere between financial models, new ideas, festival planning and whatever comes next.</p>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="portrait"></div>
+      <p class="portrait-note" data-i18n="portrait_note">→ that's usually how I like it</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="eyebrow reveal" data-i18n="eyebrow_three_sides">Three sides</span>
+    <h2 class="h-lg reveal" data-i18n="three_sides_heading">Not exactly one lane.</h2>
+    <div class="sides-grid">
+      <div class="side-card reveal">
+        <span class="side-n">01</span>
+        <h3 data-i18n="side1_title">The Business Side</h3>
+        <p data-i18n="side1_body">Finance. Strategy. Markets. Entrepreneurship. I like understanding how companies, markets and numbers actually work — and turning complex information into a decision someone can act on.</p>
+      </div>
+      <div class="side-card reveal reveal-delay-1">
+        <span class="side-n">02</span>
+        <h3 data-i18n="side2_title">The Builder Side</h3>
+        <p data-i18n="side2_body">Businesses. Events. Projects. Taking something from an idea to something that exists in the real world — and dealing with everything in between that nobody warns you about.</p>
+      </div>
+      <div class="side-card reveal reveal-delay-2">
+        <span class="side-n">03</span>
+        <h3 data-i18n="side3_title">The Other Side</h3>
+        <p data-i18n="side3_body">Mountains. Road trips. Travel. Curiosity. The part that has nothing to do with a spreadsheet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="eyebrow_right_now">Right now</span>
+      <h2 class="h-lg reveal" data-i18n="currently_heading">CURRENTLY /</h2>
+      <div class="currently-list" id="currentlyList"></div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2 class="h-xl reveal" data-i18n-html="about_closing_html">WANT TO SEE<br>THE WORK?</h2>
+    <div class="closing-links reveal reveal-delay-1">
+      <a href="work.html" data-i18n="closing_work">Work →</a>
+      <a href="projects.html" data-i18n="closing_projects">Projects →</a>
+      <a href="contact.html" data-i18n="closing_contact">Contact →</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/content.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+  (function () {
+    const el = document.getElementById("currentlyList");
+    if (el) {
+      el.innerHTML = SITE.currently.map(c => `
+        <div class="currently-row reveal">
+          <div class="label">${c.label}</div>
+          <div class="value">${c.value}</div>
+        </div>
+      `).join("");
+    }
+  })();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

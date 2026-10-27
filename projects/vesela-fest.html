@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veselá Fest — Jan Fridrich</title>
+<meta name="description" content="Veselá Fest — from 120 visitors to a growing festival. Founded and run by Jan Fridrich.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="container pdetail-hero">
+    <a href="../projects.html" class="hand" style="font-size:1rem; text-decoration:none;" data-i18n="all_projects">← All projects</a>
+    <h1 class="h-xl reveal" style="margin-top:16px;" id="pTitle">VESELÁ FEST</h1>
+    <p class="lede reveal reveal-delay-1" style="margin-top:16px;" id="pIntro"></p>
+    <div class="pdetail-meta reveal reveal-delay-1" id="pMeta"></div>
+    <div class="pdetail-media reveal reveal-delay-2">
+      <img src="../assets/project-vesela-fest.jpg" alt="Veselá Fest founding crew" style="width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05);">
+      <svg class="sketch draw" style="top:14%; left:6%; width:120px; height:70px;" viewBox="0 0 120 70" aria-hidden="true">
+        <path d="M6 60 L40 12 L60 46 L114 6"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="eyebrow reveal" data-i18n="eyebrow_growth">Growth</span>
+    <h2 class="h-lg reveal" data-i18n="growth_heading">120 → 1,810 visitors.</h2>
+    <p class="body-text reveal reveal-delay-1" style="margin-top:14px;" data-i18n="growth_body">From a garden party with a pallet stage to a full one-day festival in the Valašsko region — every year, 2019 through the upcoming 2026 edition.</p>
+    <div class="growth-wrap reveal reveal-delay-1">
+      <svg class="growth-svg" id="growthChart" aria-hidden="true"></svg>
+    </div>
+    <p class="hand" style="margin-top:10px;" data-i18n="escalated_quickly">→ this escalated quickly</p>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="eyebrow_story">Story</span>
+      <div class="pdetail-story" id="pStory"></div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="eyebrow reveal" data-i18n="eyebrow_role">Role</span>
+    <div class="resp-tags reveal" id="pResp"></div>
+    <a class="pdetail-external reveal" id="pExternal" href="#" target="_blank" rel="noopener"></a>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../js/content.js"></script>
+<script src="../js/i18n.js"></script>
+<script>
+  (function () {
+    const p = SITE.projects["vesela-fest"];
+    document.getElementById("pIntro").textContent = p.intro;
+    document.getElementById("pMeta").innerHTML = `<span>${p.category}</span><span>${p.year}</span><span>${p.status}</span>`;
+    document.getElementById("pStory").innerHTML = p.story.map(s => `<p>${s}</p>`).join("");
+    document.getElementById("pResp").innerHTML = p.responsibilities.map(r => `<span>${r}</span>`).join("");
+    const ext = document.getElementById("pExternal");
+    ext.textContent = p.externalLabel + " ↗";
+    ext.href = p.externalUrl;
+  })();
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

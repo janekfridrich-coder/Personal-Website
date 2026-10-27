@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Jan Fridrich</title>
+<meta name="description" content="Things Jan Fridrich has built, or is still building — Veselá Fest, Alufen and digital experiments.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="container projects-hero">
+    <span class="eyebrow reveal" data-i18n="eyebrow_projects">Projects</span>
+    <h1 class="h-xl reveal" data-i18n-html="projects_hero_html">THINGS I'VE BUILT.<br>OR AM STILL BUILDING.</h1>
+    <p class="lede reveal reveal-delay-1" style="margin-top:22px;" data-i18n="projects_lede">Some started as ideas. Some got slightly out of hand.</p>
+  </section>
+
+  <section class="section container" style="padding-top:70px;">
+    <div id="projectBlocks"></div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/content.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+  (function () {
+    const order = ["vesela-fest", "alufen", "eteron-group"];
+    const viewProjectLabel = LANG === "cs" ? "ZOBRAZIT PROJEKT →" : "VIEW PROJECT →";
+    const wrap = document.getElementById("projectBlocks");
+    if (wrap) {
+      wrap.innerHTML = order.map((slug, i) => {
+        const p = SITE.projects[slug];
+        const media = p.cover
+          ? `<img src="${p.cover}" alt="${p.title}">`
+          : `<div class="media-label">${p.title}</div>`;
+        return `
+        <a class="project-block reveal" href="projects/${slug}.html" data-project-link>
+          <div class="project-meta-row">
+            <span class="proj-n">${String(i + 1).padStart(2, "0")}</span>
+            <span class="project-status">${p.status}</span>
+          </div>
+          <h2 class="h-xl" style="margin-top:18px;">${p.title}</h2>
+          <p class="body-text" style="margin-top:16px; max-width:56ch;">${p.intro}</p>
+          <div class="project-meta-row" style="margin-top:22px;">
+            <span class="project-cat">${p.category} — ${p.year}</span>
+            <span class="text-red" style="font-weight:700; font-size:.85rem;">${viewProjectLabel}</span>
+          </div>
+          <div class="project-media">
+            ${media}
+          </div>
+        </a>`;
+      }).join("");
+    }
+  })();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

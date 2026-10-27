@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jan Fridrich — Finance / Entrepreneurship / Events / Ideas</title>
+<meta name="description" content="Jan Fridrich — finance, businesses, projects and a music festival. I don't really have one thing. That's kind of the point.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero container" data-parallax>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-name">
+          <h1 class="h-huge reveal">JAN</h1>
+          <h1 class="h-huge reveal reveal-delay-1">FRIDRICH<span class="text-red">.</span></h1>
+        </div>
+        <div class="hero-tags reveal reveal-delay-2">
+          <span data-i18n="hero_tag_finance">Finance</span><span data-i18n="hero_tag_entrepreneurship">Entrepreneurship</span><span data-i18n="hero_tag_events">Events</span><span data-i18n="hero_tag_ideas">Ideas</span>
+        </div>
+      </div>
+      <div class="hero-portrait reveal reveal-delay-1" data-depth="10">
+        <img src="assets/portrait-cutout.png" alt="Jan Fridrich">
+      </div>
+    </div>
+
+    <svg class="sketch draw" data-depth="14" style="top:8%; right:6%; width:130px; height:130px;" viewBox="0 0 130 130" aria-hidden="true">
+      <circle cx="65" cy="65" r="46" transform="rotate(-8 65 65)"></circle>
+    </svg>
+    <svg class="sketch draw" data-depth="8" style="bottom:26%; left:4%; width:90px; height:60px;" viewBox="0 0 90 60" aria-hidden="true">
+      <path d="M4 50 C 20 10, 60 50, 86 8"></path>
+      <path d="M74 6 L86 8 L80 20"></path>
+    </svg>
+
+    <div class="scroll-cue"><span data-i18n="scroll_explore">Scroll to explore</span><span class="line"></span></div>
+  </section>
+
+  <!-- ================= LOGO WALL (Industry & Business) ================= -->
+  <section class="container">
+    <div class="logo-wall reveal" id="logoWall"></div>
+  </section>
+
+  <!-- ================= MANIFESTO ================= -->
+  <section class="section container">
+    <p class="manifesto-stmt reveal" data-i18n-html="manifesto_html">
+      I DON'T REALLY<br>HAVE ONE THING.<br>
+      THAT'S KIND<br>OF <span class="text-red underline-red">POINT.</span>
+    </p>
+    <div class="manifesto-intro reveal reveal-delay-1">
+      <p class="lede" data-i18n="manifesto_p1">Based in the Czech Republic, shaped by international experience and usually working on several things at once.</p>
+      <p class="body-text" style="margin-top:16px;" data-i18n="manifesto_p2">I work across finance and strategy, build businesses and projects, organise a music festival and occasionally disappear into the mountains.</p>
+    </div>
+  </section>
+
+  <!-- ================= MY WORLD ================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="world-section-head">
+        <div>
+          <span class="eyebrow reveal" data-i18n="eyebrow_overview">Overview</span>
+          <h2 class="h-xl reveal" data-i18n-html="world_heading_html">BUILT<br>AROUND IDEAS.</h2>
+        </div>
+        <p class="hand reveal reveal-delay-1" data-i18n="click_circle">click a circle to visit</p>
+      </div>
+
+      <div class="project-map reveal reveal-delay-1" id="worldViz">
+        <svg class="project-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line data-id="vesela-fest" x1="50" y1="18" x2="12" y2="88"></line>
+          <line data-id="alufen"      x1="50" y1="18" x2="37" y2="88"></line>
+          <line data-id="eteron"      x1="50" y1="18" x2="63" y2="88"></line>
+          <line data-id="ideas"       x1="50" y1="18" x2="88" y2="88"></line>
+        </svg>
+
+        <div class="map-person">
+          <div class="map-person-image"><img src="assets/portrait.jpg" alt="Jan Fridrich"></div>
+          <span class="map-person-name">JAN FRIDRICH</span>
+          <span class="eyebrow" data-i18n="common_thread">THE COMMON THREAD</span>
+        </div>
+
+        <div class="project-node-row" id="worldNodes"></div>
+      </div>
+
+      <p class="project-map-desc" id="worldDesc"></p>
+
+      <div class="project-map-mobile" id="worldMobile">
+        <div class="map-mobile-person">
+          <div class="map-person-image"><img src="assets/portrait.jpg" alt="Jan Fridrich"></div>
+          <span class="map-person-name">JAN FRIDRICH</span>
+          <span class="eyebrow" data-i18n="common_thread">THE COMMON THREAD</span>
+        </div>
+        <div class="map-mobile-line-down"></div>
+        <div class="map-mobile-spine" id="worldMobileRows"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SELECTED PROJECTS ================= -->
+  <section class="section container">
+    <span class="eyebrow reveal" data-i18n="eyebrow_work_in_world">Work in the world</span>
+    <h2 class="h-xl reveal" data-i18n-html="selected_projects_html">SELECTED<br>PROJECTS.</h2>
+
+    <div class="mt-xxl" id="projRows"></div>
+  </section>
+
+  <!-- ================= NUMBERS ================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="eyebrow_by_numbers">By the numbers</span>
+      <h2 class="h-xl reveal" data-i18n-html="numbers_heading_html">A FEW<br>NUMBERS.</h2>
+      <div class="numbers-grid" id="numbersGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= CLOSING ================= -->
+  <section class="section container">
+    <h2 class="h-xl reveal" data-i18n-html="closing_heading_html">THERE'S<br>MORE.</h2>
+    <p class="lede reveal reveal-delay-1" style="margin-top:20px;" data-i18n="closing_sub">Work, projects, places, ideas and everything in between.</p>
+    <div class="closing-links reveal reveal-delay-2">
+      <a href="about.html" data-i18n="closing_about">About →</a>
+      <a href="projects.html" data-i18n="closing_projects">Projects →</a>
+      <a href="journey.html" data-i18n="closing_journey">Journey →</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/content.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+  // Render page content BEFORE main.js runs its DOMContentLoaded init,
+  // so counters / reveal / accordions pick up these elements correctly.
+  (function () {
+    const t = (typeof STATIC_I18N !== "undefined" ? (STATIC_I18N[LANG] || STATIC_I18N.en) : {});
+    const viewProjectLabel = LANG === "cs" ? "ZOBRAZIT PROJEKT →" : "VIEW PROJECT →";
+    const wrap = document.getElementById("projRows");
+    if (wrap) {
+      wrap.innerHTML = SITE.projectsPreview.map(p => {
+        const isExternal = /^https?:\/\//.test(p.href);
+        return `
+        <a class="proj-row reveal" href="${p.href}" data-project-link${isExternal ? ' target="_blank" rel="noopener"' : ""}>
+          <span class="proj-n">${p.n}</span>
+          <span class="proj-title">${p.title}</span>
+          <span class="proj-tag">${p.tag}</span>
+          <span class="proj-view">${viewProjectLabel}</span>
+        </a>
+      `;
+      }).join("");
+    }
+    const lw = document.getElementById("logoWall");
+    if (lw) {
+      lw.innerHTML = SITE.logoWall.map(col => `
+        <div class="logo-wall-col">
+          <span class="logo-wall-label">${col.label}</span>
+          <div class="logo-wall-logos">
+            ${col.logos.map(l => {
+              const style = l.height ? ` style="height:${l.height}px"` : "";
+              return l.href
+                ? `<a href="${l.href}" target="${l.href === "#" ? "_self" : "_blank"}" rel="noopener"><img src="${l.src}" alt="${l.name}"${style}></a>`
+                : `<span><img src="${l.src}" alt="${l.name}"${style}></span>`;
+            }).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+    const ng = document.getElementById("numbersGrid");
+    if (ng) {
+      ng.innerHTML = SITE.numbers.map(n => {
+        const valueHtml = n.value === null
+          ? `${n.display || ""}`
+          : `<span data-counter="${n.value}" data-suffix="${n.suffix}" data-display="${n.value}${n.suffix}">0</span>`;
+        return `
+        <div class="number-item">
+          <div class="number-value">${valueHtml}</div>
+          <div class="number-label">${n.label}</div>
+          ${n.note ? `<div class="number-note">${n.note}</div>` : ""}
+        </div>
+      `;
+      }).join("");
+    }
+    const wm = document.getElementById("worldMobileRows");
+    if (wm) {
+      wm.innerHTML = SITE.world.map(w => {
+        const inner = `
+          <span class="map-mobile-circle">${w.logo ? `<img src="${w.logo}" alt="${w.label} logo">` : `<span class="project-node-text">${w.label}</span>`}</span>
+          <span class="map-mobile-info">
+            <span class="map-mobile-label">${w.label}</span>
+            <span class="map-mobile-meta">${w.meta}</span>
+          </span>
+        `;
+        return w.external
+          ? `<a class="map-mobile-row" href="${w.href}" target="_blank" rel="noopener">${inner}</a>`
+          : `<a class="map-mobile-row" href="${w.href}">${inner}</a>`;
+      }).join("");
+    }
+    const wn = document.getElementById("worldNodes");
+    if (wn) {
+      wn.innerHTML = SITE.world.map(w => {
+        const inner = `<span class="project-node-circle">${w.logo ? `<img src="${w.logo}" alt="${w.label} logo">` : `<span class="project-node-text">${w.label}</span>`}</span>
+          <span class="project-node-label">${w.label}</span>
+          <span class="project-node-meta">${w.meta}</span>`;
+        return w.external
+          ? `<a class="project-node" data-id="${w.id}" href="${w.href}" target="_blank" rel="noopener">${inner}</a>`
+          : `<a class="project-node" data-id="${w.id}" href="${w.href}">${inner}</a>`;
+      }).join("");
+    }
+  })();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

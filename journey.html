@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journey — Jan Fridrich</title>
+<meta name="description" content="Places, schools, work and a few unexpected turns — Jan Fridrich's journey so far.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="container journey-hero">
+    <span class="eyebrow reveal" data-i18n="eyebrow_journey">Journey</span>
+    <h1 class="h-xl reveal" data-i18n-html="journey_hero_html">SO<br>FAR.</h1>
+    <p class="lede reveal reveal-delay-1" style="margin-top:22px;" data-i18n="journey_lede">Places, schools, work and a few unexpected turns.</p>
+  </section>
+
+  <section class="section container" style="padding-top:50px;">
+    <span class="eyebrow reveal" data-i18n="eyebrow_education">Education</span>
+    <div id="eduList"></div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <span class="eyebrow reveal" data-i18n="eyebrow_roughly_where">Roughly where</span>
+      <h2 class="h-lg reveal" data-i18n="map_heading">A conceptual map.</h2>
+      <div class="map-wrap reveal reveal-delay-1">
+        <svg class="map-svg" id="mapSvg" viewBox="0 0 400 275" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+      </div>
+      <p class="hand" style="margin-top:18px;" data-i18n="map_hand">somewhere along the way</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="eyebrow reveal" data-i18n="eyebrow_timeline">Timeline</span>
+    <h2 class="h-lg reveal" data-i18n="timeline_heading">A few milestones.</h2>
+    <div class="vtimeline" id="vtimeline"></div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/content.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+  (function () {
+    const edu = document.getElementById("eduList");
+    if (edu) {
+      edu.innerHTML = SITE.education.map(e => `
+        <div class="edu-row reveal">
+          <div>
+            <h3>${e.school}</h3>
+            <div class="program">${e.program}</div>
+          </div>
+          <div class="place">${e.period}<br>${e.place}</div>
+        </div>
+      `).join("");
+    }
+
+    const vt = document.getElementById("vtimeline");
+    if (vt) {
+      vt.innerHTML = SITE.timeline.map(t => `
+        <div class="vtimeline-item reveal">
+          <div class="year">${t.year}</div>
+          <h4>${t.label}</h4>
+          ${t.note ? `<div class="note">→ ${t.note}</div>` : ""}
+        </div>
+      `).join("");
+    }
+
+    // conceptual map
+    const mapHand2 = LANG === "cs" ? (STATIC_I18N.cs.map_hand2) : (STATIC_I18N.en.map_hand2);
+    const svg = document.getElementById("mapSvg");
+    if (svg) {
+      const pts = SITE.mapPoints.map(p => ({ ...p, px: (p.x / 100) * 400, py: (p.y / 100) * 275 }));
+      let route = "";
+      pts.forEach((p, i) => { route += (i === 0 ? "M" : "L") + p.px + "," + p.py + " "; });
+      let dots = "";
+      pts.forEach((p) => {
+        dots += `<circle class="map-dot" cx="${p.px}" cy="${p.py}" r="4.5"></circle>`;
+        dots += `<text class="map-point-label" x="${p.px + 10}" y="${p.py + 4}">${p.label}</text>`;
+      });
+      svg.innerHTML = `
+        <rect class="map-outline" x="10" y="10" width="380" height="255"></rect>
+        <path class="map-outline" d="M40,230 L70,140 L120,90 L200,60 L280,80 L340,150 L360,220" />
+        <path class="map-route" d="${route}"></path>
+        ${dots}
+        <text class="map-hand" x="230" y="230" transform="rotate(-4 230 230)">${mapHand2}</text>
+      `;
+    }
+  })();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
