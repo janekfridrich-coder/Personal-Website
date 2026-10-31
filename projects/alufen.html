@@ -38,6 +38,13 @@
     </div>
   </section>
 
+  <section class="section container" id="innovation">
+    <span class="eyebrow reveal" data-i18n="eyebrow_innovation_line">Innovation line</span>
+    <h2 class="h-xl reveal" data-i18n-html="innovation_heading_html">INNOVATION IN A<br>FAMILY BUSINESS.</h2>
+    <p class="lede reveal reveal-delay-1" style="margin-top:20px;" data-i18n="innovation_lede">How a summer job in my father's company turned into digitalising the way it is run.</p>
+    <ol class="inno-line" id="pInnovation"></ol>
+  </section>
+
   <section class="section section-alt">
     <div class="container">
       <span class="eyebrow reveal" data-i18n="eyebrow_story">Story</span>
@@ -64,6 +71,12 @@
     document.getElementById("pMeta").innerHTML = `<span>${p.category}</span><span>${p.year}</span><span>${p.status}</span>`;
     document.getElementById("pStory").innerHTML = p.story.map(s => `<p>${s}</p>`).join("");
     document.getElementById("pResp").innerHTML = p.responsibilities.map(r => `<span>${r}</span>`).join("");
+    document.getElementById("pInnovation").innerHTML = p.innovation.map((st, i) => `
+      <li class="inno-step reveal${i === p.innovation.length - 1 ? " is-final" : ""}">
+        <span class="inno-n">${String(i + 1).padStart(2, "0")}</span>
+        <h3>${st.title}</h3>
+        <p>${st.body}</p>
+      </li>`).join("");
     const ext = document.getElementById("pExternal");
     ext.textContent = p.externalLabel + " ↗";
     ext.href = p.externalUrl;

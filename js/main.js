@@ -93,6 +93,7 @@
           <a href="${root}about.html">${t.footer_about || "About"}</a>
           <a href="${root}projects.html">${t.footer_projects || "Projects"}</a>
           <a href="${root}contact.html">${t.footer_contact || "Contact"}</a>
+          <a href="mailto:${SITE.links.email}">${SITE.links.email}</a>
           <a href="${SITE.links.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
           <a href="${SITE.links.instagram}" target="_blank" rel="noopener">Instagram</a>
         </div>

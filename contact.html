@@ -36,9 +36,9 @@
     const el = document.getElementById("contactLinks");
     if (el) {
       el.innerHTML = `
-        <a href="mailto:${SITE.links.email}"><span>${t.contact_email}</span><span class="go">${t.say_hi}</span></a>
-        <a href="${SITE.links.linkedin}" target="_blank" rel="noopener"><span>${t.contact_linkedin}</span><span class="go">${t.visit_link}</span></a>
-        <a href="${SITE.links.instagram}" target="_blank" rel="noopener"><span>${t.contact_instagram}</span><span class="go">${t.visit_link}</span></a>
+        <a href="mailto:${SITE.links.email}"><span class="contact-item"><small>${t.contact_email}</small><span class="contact-value">${SITE.links.email}</span></span><span class="go">${t.say_hi}</span></a>
+        <a href="${SITE.links.linkedin}" target="_blank" rel="noopener"><span class="contact-item"><small>${t.contact_linkedin}</small><span class="contact-value">${SITE.links.linkedinHandle}</span></span><span class="go">${t.visit_link}</span></a>
+        <a href="${SITE.links.instagram}" target="_blank" rel="noopener"><span class="contact-item"><small>${t.contact_instagram}</small><span class="contact-value">${SITE.links.instagramHandle}</span></span><span class="go">${t.visit_link}</span></a>
       `;
     }
   })();

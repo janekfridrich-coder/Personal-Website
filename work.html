@@ -49,6 +49,7 @@
   (function () {
     const wrap = document.getElementById("timelineWrap");
     const all = SITE.experience;
+    const internLabel = LANG === "cs" ? "Stáž" : "Internship";
     const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
     if (wrap) {
       wrap.innerHTML = all.map((e, i) => `
@@ -58,7 +59,7 @@
               ${e.logo ? `<span class="timeline-logo"><img src="${e.logo}" alt="${e.company} logo"></span>` : ""}
               <div>
                 <h3>${e.company}</h3>
-                <div class="timeline-role">${e.role}</div>
+                <div class="timeline-role">${e.type === "internship" ? `<span class="intern-badge">${internLabel}</span>` : ""}${e.role}</div>
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:18px;">

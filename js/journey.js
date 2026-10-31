@@ -81,9 +81,9 @@
   // Markers.
   const labelAt = {
     // dx/dy/a = full label offset (px) · nx/ny = offset of the small step number on narrow screens
-    valmez:     { dx: -14, dy: 21,  a: "end",   nx: -12, ny: 24 },
-    ostrava:    { dx: 14,  dy: -14, a: "start", nx: 12,  ny: -10 },
-    lyon:       { dx: 16,  dy: -12, a: "start", nx: 0,   ny: -14 }
+    valmez:     { dx: -16, dy: 22,  a: "end",   nx: -12, ny: 24 },
+    ostrava:    { dx: 16,  dy: -22, a: "start", nx: 12,  ny: -10 },
+    lyon:       { dx: 18,  dy: -16, a: "start", nx: 0,   ny: -14 }
   };
   const stops = {};
   function ensureStop(id) {
@@ -103,7 +103,9 @@
     s.order = i + 1;
     const o = s.o;
     el("line", { class: "jm-leader", x1: 0, y1: 0, x2: o.dx * 0.8, y2: o.dy * 0.8 }, s.lab);
-    el("text", { class: "jm-t-full", x: o.dx, y: o.dy, "text-anchor": o.a }, s.lab).textContent = r.name;
+    // City name big, years underneath; the full school name lives in the steps list.
+    el("text", { class: "jm-t-full jm-t-city", x: o.dx, y: o.dy, "text-anchor": o.a }, s.lab).textContent = r.place.split(",")[0];
+    el("text", { class: "jm-t-full jm-t-sub", x: o.dx, y: o.dy + 15, "text-anchor": o.a }, s.lab).textContent = r.years;
     el("text", { class: "jm-t-num", x: o.nx || 0, y: o.ny || -13, "text-anchor": "middle" }, s.lab).textContent = String(i + 1);
   });
 
@@ -137,10 +139,9 @@
   function updateLabels(width) {
     const narrow = width < 600;
     mount.classList.toggle("is-narrow", narrow);
-    const zoomed = cam.w < 300;
     Object.values(stops).forEach((st) => {
       let show = false;
-      if (st.school) show = zoomed || st.id === "lyon";
+      if (st.school) show = true;
       st.lab.classList.toggle("is-show", show);
     });
     czLab.classList.toggle("is-show", cam.w > 500 && mount.classList.contains("is-cz"));

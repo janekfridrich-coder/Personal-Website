@@ -20,9 +20,11 @@ const SITE_I18N = {
     year: new Date().getFullYear(),
 
     links: {
-      email: "hello@janfridrich.com",
-      linkedin: "https://www.linkedin.com/in/jan-fridrich",
-      instagram: "https://www.instagram.com/janfridrich",
+      email: "janek.fridrich@gmail.com",
+      linkedin: "https://www.linkedin.com/in/janfridrich210",
+      linkedinHandle: "janfridrich210",
+      instagram: "https://www.instagram.com/johny_fridrich",
+      instagramHandle: "@johny_fridrich",
       cv: "#"
     },
 
@@ -109,6 +111,7 @@ const SITE_I18N = {
       },
       {
         company: "Tatra Trucks",
+        type: "internship",
         role: "Finance",
         period: "2024",
         focus: ["Financial analysis", "Working capital", "VAT group analysis"],
@@ -119,6 +122,7 @@ const SITE_I18N = {
       },
       {
         company: "Schott Termofrost",
+        type: "internship",
         role: "Finance & Process Engineering",
         period: "2025",
         focus: ["Customer profitability", "Power BI", "Financial modelling", "Process digitalisation"],
@@ -129,6 +133,7 @@ const SITE_I18N = {
       },
       {
         company: "Mattoni 1873",
+        type: "internship",
         role: "Strategic Marketing",
         period: "2025",
         focus: ["Strategic marketing", "Brand", "Market analysis"],
@@ -139,6 +144,7 @@ const SITE_I18N = {
       },
       {
         company: "Excalibur Army",
+        type: "internship",
         role: "Purchasing / Strategic Projects / Analytics",
         period: "2026",
         focus: ["Purchasing", "Strategy", "Analytics"],
@@ -261,6 +267,13 @@ const SITE_I18N = {
           "The catalogue has grown from fences into pergolas (several product lines, including our own Alufen line alongside Aluxe and Isotra), winter gardens, aluminium and iron gates, carports and shading — awnings, blinds and screen roller shutters. The pitch is simple: aluminium doesn't rust like steel and doesn't rot like wood, so the fence still looks new years after installation.",
           "Day to day, most of the actual work here is unglamorous by design: quoting fast, keeping lead times honest, and making sure the five-step process — free consultation, no-obligation quote, custom project documentation, careful manufacturing, fast installation — holds up under real demand."
         ],
+        innovation: [
+          { title: "Summer job in my father's company", body: "Starting on the ground — the workshop, installations, the everyday work." },
+          { title: "Understanding the processes", body: "How an inquiry turns into a quote, production and installation — and where time gets lost." },
+          { title: "The first helper Excels", body: "Quotes, order overviews and planning moved from paper into spreadsheets." },
+          { title: "From Excels to internal apps", body: "The spreadsheets were rebuilt into internal applications the whole team works with." },
+          { title: "Innovation in production & management", body: "Tools and data that production and the company are run by today." }
+        ],
         responsibilities: ["Founder", "Business development", "Operations", "Product", "Customer experience"]
       },
       "eteron-group": {
@@ -306,9 +319,11 @@ const SITE_I18N = {
     year: new Date().getFullYear(),
 
     links: {
-      email: "hello@janfridrich.com",
-      linkedin: "https://www.linkedin.com/in/jan-fridrich",
-      instagram: "https://www.instagram.com/janfridrich",
+      email: "janek.fridrich@gmail.com",
+      linkedin: "https://www.linkedin.com/in/janfridrich210",
+      linkedinHandle: "janfridrich210",
+      instagram: "https://www.instagram.com/johny_fridrich",
+      instagramHandle: "@johny_fridrich",
       cv: "#"
     },
 
@@ -395,6 +410,7 @@ const SITE_I18N = {
       },
       {
         company: "Tatra Trucks",
+        type: "internship",
         role: "Finance",
         period: "2024",
         focus: ["Finanční analýza", "Pracovní kapitál", "Analýza DPH skupiny"],
@@ -405,6 +421,7 @@ const SITE_I18N = {
       },
       {
         company: "Schott Termofrost",
+        type: "internship",
         role: "Finance a procesní inženýrství",
         period: "2025",
         focus: ["Zisková marže zákazníků", "Power BI", "Finanční modelování", "Digitalizace procesů"],
@@ -415,6 +432,7 @@ const SITE_I18N = {
       },
       {
         company: "Mattoni 1873",
+        type: "internship",
         role: "Strategický marketing",
         period: "2025",
         focus: ["Strategický marketing", "Značka", "Analýza trhu"],
@@ -425,6 +443,7 @@ const SITE_I18N = {
       },
       {
         company: "Excalibur Army",
+        type: "internship",
         role: "Nákup / Strategické projekty / Analytika",
         period: "2026",
         focus: ["Nákup", "Strategie", "Analytika"],
@@ -544,6 +563,13 @@ const SITE_I18N = {
           "„Firmu Alufen jsem založil především z potřeby nabídnout všem zákazníkům toužícím po moderním pojetí svého domu a zahrady kvalitní produkt,“ jak to popisuji na webu firmy — a pořád je to ta upřímná verze. Každý dílec se vyrábí na míru v naší vlastní dílně a od výroby po montáž se o něj stará stejný tým.",
           "Katalog se rozrostl z plotů na pergoly (několik produktových řad, včetně vlastní řady Alufen vedle Aluxe a Isotra), zimní zahrady, hliníkové i železné brány, přístřešky a stínicí techniku — markýzy, žaluzie a screenové rolety. Poselství je jednoduché: hliník nekoroduje jako ocel a nehnije jako dřevo, takže plot vypadá jako nový i po letech.",
           "Běžný provoz je z velké části záměrně nevýrazná práce: rychlé kalkulace, poctivé dodací lhůty a dohled nad tím, aby pětikrokový proces — konzultace zdarma, nezávazná kalkulace, projekt na míru, pečlivá výroba, rychlá montáž — obstál i pod reálnou poptávkou."
+        ],
+        innovation: [
+          { title: "Brigáda ve firmě mého otce", body: "Začátek úplně od základu — dílna, montáže, každodenní provoz." },
+          { title: "Pochopení procesů", body: "Jak z poptávky vzniká kalkulace, výroba a montáž — a kde se ztrácí čas." },
+          { title: "Tvorba prvních pomocných Excelů", body: "Kalkulace, přehledy zakázek a plánování z papíru do tabulek." },
+          { title: "Předělání Excelů do interních aplikací", body: "Z tabulek se staly interní aplikace, se kterými pracuje celý tým." },
+          { title: "Inovace ve výrobě a řízení", body: "Nástroje a data, podle kterých se dnes řídí výroba i celá firma." }
         ],
         responsibilities: ["Zakladatel", "Rozvoj byznysu", "Provoz", "Produkt", "Zákaznická zkušenost"]
       },
